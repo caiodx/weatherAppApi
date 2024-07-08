@@ -5,18 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.weather.api.interfaces.IOpenWeatherService;
 import com.weather.api.model.request.WeatherCityRequest;
 import com.weather.api.model.request.WeatherCoordRequest;
 import com.weather.api.model.response.forecast.ForeCastResponse;
 import com.weather.api.model.response.weather.WeatherResponse;
-import com.weather.api.services.OpenWeatherService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -24,7 +21,7 @@ import com.weather.api.services.OpenWeatherService;
 public class WeatherController {
 	
 	@Autowired
-	private OpenWeatherService _openWeatherService;
+	private IOpenWeatherService _openWeatherService;
 	
 	@GetMapping("/coord")
 	public ResponseEntity<WeatherResponse> getWeatherCoor(@RequestParam String lat,  @RequestParam String lon) {

@@ -1,17 +1,14 @@
 package com.weather.api.services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.weather.api.interfaces.IOpenWeatherService;
 import com.weather.api.model.request.WeatherCityRequest;
 import com.weather.api.model.request.WeatherCoordRequest;
 import com.weather.api.model.response.forecast.ForeCastResponse;
 import com.weather.api.model.response.weather.WeatherResponse;
 
-@Service
-public class OpenWeatherService {		
+public class OpenWeatherService implements IOpenWeatherService {		
 
 	@Autowired
 	private RestTemplate restTemplate;
